@@ -30,7 +30,7 @@ nvcc main.obj image.obj seam_cpu.obj utils.obj energy.obj dp.obj cuda_utils.obj 
 
 # Run program-----------------------------------------------------------
 
-seamcarve.exe data/input.ppm output/final.ppm 50 --visualize-energy
+seamcarve.exe data/input.ppm output/final.ppm 100 --visualize-energy
 
 # View output---------------------------------------------------------
 

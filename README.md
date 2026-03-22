@@ -55,7 +55,7 @@ Use the commands listed in `run.txt` in this order:
 Current run command in `run.txt`:
 
 ```bat
-seamcarve.exe data/input.ppm output/final.ppm 50 --visualize-energy
+seamcarve.exe data/input.ppm output/final.ppm 100 --visualize-energy
 ```
 
 ## Useful Options
