@@ -29,8 +29,11 @@ nvcc main.obj image.obj seam_cpu.obj utils.obj energy.obj dp.obj cuda_utils.obj 
 
 
 # Run program-----------------------------------------------------------
-
+# Default (GPU accelerated)
 seamcarve.exe data/input.ppm output/final.ppm 100 --visualize-energy
+
+# CPU only (no GPU)
+seamcarve.exe data/input.ppm output/final.ppm 100 --mode cpu
 
 # View output---------------------------------------------------------
 
