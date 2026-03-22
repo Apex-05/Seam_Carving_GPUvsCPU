@@ -1,0 +1,53 @@
+# Clean old files --------------------------------------------
+
+del *.obj
+del seamcarve.exe
+del /Q output\*.ppm output\step\*.ppm output\seam\*.ppm output\energy\*.ppm
+
+
+# Generate a proper input image-------------------------------------------
+
+    python generate_image/generate_image.py
+
+# Compile CUDA----------------------------------------------------------
+
+nvcc -Iinclude -arch=sm_86 -c cuda/energy_kernel.cu -o energy.obj
+nvcc -Iinclude -arch=sm_86 -c cuda/dp_kernel.cu -o dp.obj
+nvcc -Iinclude -arch=sm_86 -c cuda/cuda_utils.cu -o cuda_utils.obj
+
+
+# Compile C files----------------------------------------------------------
+
+cl /Iinclude /c src\main.c
+cl /Iinclude /c src\image.c
+cl /Iinclude /c src\seam_cpu.c
+cl /Iinclude /c src\utils.c
+
+# Link everything--------------------------------------------------------
+
+nvcc main.obj image.obj seam_cpu.obj utils.obj energy.obj dp.obj cuda_utils.obj -o seamcarve.exe
+
+
+# Run program-----------------------------------------------------------
+
+seamcarve.exe data/input.ppm output/final.ppm 50 --visualize-energy
+
+# View output---------------------------------------------------------
+
+1. Input :
+
+python view/view_ppm.py data/input.ppm
+
+2. Output : 
+
+python view/view_ppm.py output/final.ppm
+python view/view_ppm.py output/seam/seam_15.ppm
+python view/view_ppm.py output/step/step_15.ppm
+
+
+3. Energy Map:
+
+python view/view_ppm.py output/energy/energy_5.ppm
+python view/view_ppm.py output/energy/energy_final.ppm
+
+
