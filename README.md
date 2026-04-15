@@ -40,6 +40,42 @@ Note: these generated outputs are ignored by git (see `.gitignore`).
 - `cuda/dp_kernel.cu` : dynamic programming kernel
 - `cuda/cuda_utils.cu` : CUDA memory/copy/error wrappers
 
+## Images
+
+### 1. Output Images
+
+### Surf Image Output
+![Input](images/input.png)
+
+### Cat Image Output
+![Cat Input](images/input_cat.png)
+
+## 2. Energy Maps
+
+### Cat Energy Map
+![Energy Map Cat](images/energymap_cat.png)
+
+### Surf Energy Map
+![Energy Map Surf](images/energymap_surf.png)
+
+
+## 3. Seam Removal Results
+
+### Cat Seam Generation at step 15
+![Seam](images/seam.png)
+
+### Surf Seam Generation at step 15
+![Seam 15](images/seam15.png)
+
+###  Surf Seam Generation at step 45
+![Seam 45](images/seam45.png)
+
+###  Surf Seam Generation at step 80
+![Seam 80](images/seam80.png)
+
+###  Surf Seam Generation at step 90
+![Seam 90](images/seam90.png)
+
 ## How to Run (Using run.txt)
 
 Use the commands listed in `run.txt` in this order:
